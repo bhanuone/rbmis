@@ -1,0 +1,12 @@
+// Place all the styles related to the hospitals controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+//site-wide styles
+.ui.grid {
+  .admin-login-form.column {max-width: 450px;}
+}
+.ui.form {
+  .three.fields > .field:first-child {
+    padding-left:7px;
+  }
+}

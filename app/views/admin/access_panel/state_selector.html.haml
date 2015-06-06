@@ -1,0 +1,48 @@
+- breadcrumb :state_selector
+.ui.padded.centered.grid
+  .five.wide.column
+    .ui.header Manage hospitals based on location
+  .row
+    .ten.wide.column
+      .ui.form
+        .ui.two.fields
+          .field
+            = label_tag 'Country:'
+            = select_tag :country_id, options_from_collection_for_select(@countries, "id", "name"), prompt: "Select country"
+          .field
+            = label_tag 'State:'
+            = select_tag :state_id, '',  prompt: 'Select State', disabled: true
+.ui.divider
+
+:javascript
+  $('#country_id').on('change', function(){
+    $this = $(this)
+    if($this.val()) {
+      $states_list = $('#state_id');
+      $('#state_id').children().not(':first-child').remove();
+      states_url = '/countries/' + $this.val() + '/states.json';
+      $.ajax({
+        url: states_url,
+        success: function(data) {
+          $.each(data, function(index, obj){
+            $states_list.append('<option value="' + obj.id + '">' + obj.name + '</option>')
+          });
+          $states_list.removeAttr("disabled");
+        }
+      })
+    }
+    else {
+      $('#state_id')
+      .attr("disabled", "disabled")
+      .children()
+      .not(':first-child')
+      .remove();
+    }
+  });
+  $('#state_id').on('change', function(){
+    $this = $(this);
+    if($.isNumeric($this.val())) {
+      var url = '/states/' + $this.val() + '/cities'
+      location.href = url;
+    }
+  });

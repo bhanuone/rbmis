@@ -1,0 +1,189 @@
+Dentist
+General Physician
+Homeopath
+Pediatrician
+Physiotherapist
+Gynecologist/obstetrician
+Orthopedist
+Gynecologist
+Ayurveda
+Cardiologist
+General Surgeon
+Dermatologist/cosmetologist
+Ophthalmologist/ Eye Surgeon
+Ophthalmologist
+Dermatologist
+Diabetologist
+Urologist
+Ear-nose-throat (ent) Specialist
+Ent/ Otolaryngologist
+Radiologist
+Cosmetic/plastic Surgeon
+Gastroenterologist
+Psychiatrist
+Anesthesiologist
+Pulmonologist
+Orthodontist
+Implantologist
+Neurologist
+Cosmetic/aesthetic Dentist
+Dental Surgeon
+Oral And Maxillofacial Surgeon
+Neurosurgeon
+Clinical Physiotherapist
+Endodontist
+Prosthodontist
+Periodontist
+Orthopedic Surgeon
+Oncologist
+Pediatric Dentist
+Spa Therapist
+Cosmetologist
+Obstetrician
+Pediatric Surgeon
+Dietitian/nutritionist
+Sexologist
+Hair Transplant Surgeon
+Internal Medicine
+Nephrologist/renal Specialist
+Nephrologist
+Audiologist
+Spine And Pain Specialist
+Rheumatologist
+Psychologist
+Laparoscopy
+Acupuncturist
+Yoga And Naturopathy
+Pathologist
+Orthopedic Physiotherapist
+General Pathologist
+Unani
+Infertility Specialist
+Endocrinologist
+Alternative Medicine
+Oncologist/cancer Specialist
+Consultant Physician
+Speech Therapist
+Optometrist
+General Endocrinologist
+Clinical Psychologist
+Neuro Physiotherapist
+Family Physician
+Bariatric Surgeon
+Andrologist
+Veterinarian
+Obesity Specialist
+Veterinary Physician
+Surgical Oncologist
+Rehab & Physical Medicine Specialist
+Radiation Oncologist
+Trichologist
+Dentofacial Orthopedist
+Spine Surgeon
+Addiction Psychiatrist
+Pediatric Physiotherapist
+Cardiothoracic Surgeon
+Allergist/immunologist
+Cardiac Surgeon
+Surgeon
+Aesthetic Dermatology
+Total Joint Surgeon
+Pediatric Dermatologist
+Occupational Therapist
+Gastrointestinal Surgery
+Interventional Cardiologist
+Venereologist
+Vascular Surgeon
+Adolescent And Child Psychiatrist
+Paediatric Intensivist
+Sports And Musculoskeletal Physiotherapist
+Pediatric Orthopedic Surgeon
+Counselling Psychologist
+Sports Medicine Specialist
+Gastroentrology Surgeon
+Psychotherapist
+Preventive Dentistry
+Podiatrist
+Hematologist
+Dermatosurgeon
+Urological Surgeon
+Head And Neck Surgeon
+Oral Medicine And Radiology
+Neonatalogist
+Neuropsychiatrist
+Joint Replacement Surgeon
+Asthma Specialist
+Sports Medicine Surgeon
+Pediatric Urologist
+Cardiovascular And Pulmonary Physiotherapist
+Pediatric Otolaryngologist
+Geriatric Psychiatrist
+Emergency Medicine
+Diabetes
+Somnologist (sleep Specialist)
+Pediatric Cardiologist
+Otologist/ Neurotologist
+Nuclear Medicine Physician
+In vitro fertilisation / Ivf Specialist (infertilty)
+Sports Medicine Physician
+Intestine Surgeon
+Chronic Liver Specialist
+Reproductive Endocrinologist (infertilty)
+Proctologist
+Pediatric Gastroenterologist
+Hepatology
+Oral Pathologist
+Immunodermatologist
+Phlebologist
+Pediatric Neurologist
+Neuropsychologist
+Gynecologic Oncologist
+Geneticist
+Electro Homoeopathy
+Colorectal Surgeon
+Cardiothoracic And Vascular Surgeon
+Aesthetic Surgeon
+Urogynecologist
+Neonatal Surgeon
+Geriatric Physiotherapist
+Siddha
+Rhinologist
+Integrated Medicine
+Hepato-biliary-pancreatic
+Sports Nutritionist
+Sonologist
+Hiv Specialist
+Veterinary Surgeon
+Pediatric Pulmonologist
+Hematologic Oncologist
+Geriatrician
+Chiropractor
+Aesthetic Medicine
+Ultrasonologist
+Thoracic (chest) Surgeon
+Pediatric Endocrinologist
+Optician
+Educational Psychologist
+Preventive Medicine
+Podiatric Surgeon
+Pediatric Oncologist
+Neuro Rehablitation
+Headache Specialist
+Hand Surgeon
+Occupational Psychologist
+Manual Therapist
+Low Vision Specialist
+Health Psychologist
+Dermatopathologist
+Toxicologist
+Neuro-oncologist
+Hypnotherapist
+Forensic Psychologist
+Endocrine Surgeon
+Neurointensive Care
+Neuroendocrinologist
+Interventional Radiologist
+Geriatric Neurologist
+Environmental Toxicologist
+Embroyologist
+Clinical/biomedical Toxicologist

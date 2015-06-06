@@ -1,0 +1,51 @@
+- breadcrumb :area_hospitals, @area
+.ui.centered.grid
+  .two.wide.column
+    .ui.header Listing hospitals
+.row
+  .two.wide.column
+  .three.wide.column= link_to '+Add Hospital', new_area_hospital_path, class: 'ui primary button'
+.row
+  .column
+  .fourteen.wide.column
+    %table.ui.compact.collapsing.table
+      %thead
+        %tr
+          %th S.No
+          %th Name
+          %th Area
+          %th City
+          %th State
+          %th Phone
+          %th Aarogya sri
+          %th RBMIS Verified
+          %th.center.aligned Options
+      %tbody
+        - if @hospitals.any?
+          - i = 0
+          - @hospitals.each do |hospital|
+            %tr
+              %td
+                = i += 1
+              %td
+                = hospital.name
+              %td
+                = hospital.area.name
+              %td
+                = hospital.area.city.name
+              %td
+                = hospital.area.city.state.name
+              %td
+                = hospital.phone
+              %td
+                = hospital.aarogyasri ? "Yes" : "No"
+              %td
+                = hospital.verified ? "Yes" : "No"
+              %td
+                .ui.compact.tiny.buttons
+                  = link_to "Show", area_hospital_path(@area, hospital), class: 'ui compact button primary'
+                  = link_to "Edit", edit_area_hospital_path(@area, hospital), class: 'ui compact button'
+                  = link_to "Delete", area_hospital_path(@area, hospital), method: :delete, data: {confirm: "Are you sure?"}, class: 'ui compact button negative'
+        - else
+          %strong No records found
+

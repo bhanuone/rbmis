@@ -1,0 +1,29 @@
+- breadcrumb :state_cities, @state
+.ui.centered.grid
+  .two.wide.column
+    .ui.header
+      Listing cities
+.row
+  .five.wide.column
+  .four.wide.column= link_to '+New City', new_state_city_path, class: 'ui button primary'
+.five.wide.column
+.eight.wide.column
+  %table.ui.padded.collapsing.table
+    %thead
+      %tr
+        %th S.no
+        %th city
+        %th.center.aligned Options
+
+    %tbody
+      - i = 0
+      - @cities.each do |city|
+        %tr
+          %td= i += 1
+          %td= city.name
+          %td
+            .ui.compact.buttons
+              = link_to 'Show', state_city_path(@state, city), class: 'ui primary button'
+              = link_to 'Edit', edit_state_city_path(@state, city), class: 'ui button'
+              = link_to 'Delete', state_city_path(@state, city), method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'ui negative button'
+.ui.divider

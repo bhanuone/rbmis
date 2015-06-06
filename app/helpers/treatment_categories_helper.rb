@@ -1,0 +1,2 @@
+module TreatmentCategoriesHelper
+end

@@ -1,0 +1,17 @@
+/*
+ * Sematic UI overrides
+ */
+
+
+body {
+  background: #f7f7f7 !important;
+  .Tokenize { 
+    width: 450px;
+    ul.TokensContainer {
+      height: 12em;
+    }
+  }
+}
+.error-message {
+  color: #E26065;
+ }

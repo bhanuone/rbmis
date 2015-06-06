@@ -1,0 +1,52 @@
+- breadcrumb :city_area, @city, @area
+.ui.centered.grid
+  .twelve.wide.column
+    .ui.three.column.grid.segment
+      .row
+        .three.column.wide
+          .ui.header= @area.name
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.ui.top.aligned.building.outline.icon
+            .content
+              .header Area Details
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = 'Total Hospitals:'
+                .item
+                  %i.right.triangle.icon
+                  = "total diagnostic centers"
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.info.circle.icon.top.aligned
+            .content
+              .header Professional details
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = "Total Doctors: #{Doctor.count}"
+                .item
+                  %i.right.triangle.icon
+                  = "Total Hospitals: #{Hospital.count}"
+                .item
+                  %i.right.triangle.icon
+                  Experience:years
+                .item
+                  %i.right.triangle.icon
+                  RBMIS Verified: Yes
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.top.aligned.options.icon
+            .content
+              .header Options
+              .list
+                .item
+                  .tiny.basic.ui.buttons
+                    = link_to 'Back', city_areas_path(@city), class: 'ui button'
+                    = link_to 'Edit', edit_city_area_path(@city, @area), class: 'ui button'
+                    = link_to 'Delete', city_area_path(@city, @area), method: :delete, data: { :confirm => 'Are you sure?' }, class: 'ui button'
+      .ui.divider

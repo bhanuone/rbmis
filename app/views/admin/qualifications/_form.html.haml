@@ -1,0 +1,9 @@
+= form_for @qualification, html: {class: 'ui form'} do |f|   
+  .field
+    = f.label :name, 'Name:'
+    = f.text_field :name, placeholder: 'Other facility name'
+    = errors_list_for(@qualification, :name)
+  .ui.buttons
+    = link_to 'Cancel', qualifications_path, class: 'ui button'
+    .or
+    = f.submit 'Save', class: "ui positive button"

@@ -1,0 +1,9 @@
+= form_for @medical_equipment, html: {class: 'ui form'} do |f|   
+  .field
+    = f.label :name, "Name"    
+    = f.text_field :name, placeholder: 'Equipment name'
+    = errors_list_for(@medical_equipment, :name)
+  .ui.buttons
+    = link_to 'Cancel', medical_equipments_path, class: 'ui button'
+    .or
+    = f.submit 'Save', class: "ui positive button"

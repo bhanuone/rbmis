@@ -1,0 +1,112 @@
+.two.fields
+  .field
+    = f.label :full_name
+    = f.text_field :full_name
+    .error-message
+      = errors_list_for(@doctor, :full_name)
+  .field
+    = f.label :practice_name
+    = f.text_field :practice_name
+    .error-message
+      = errors_list_for(@doctor, :practice_name)
+.two.fields
+  .field
+    = f.label :phone
+    = f.text_field :phone, placeholder: 'Landline with STD Code (or) 10-digit mobile number'
+    .error-message
+      = errors_list_for(@doctor, :phone)
+  .field
+    = f.label :email
+    = f.text_field :email, placeholder: 'doctor@example.com'
+    .error-message
+      = errors_list_for(@doctor, :email)
+.two.fields
+  .field
+    = f.label :experience
+    = f.text_field :experience, placeholder: 'eg: 300'
+    .error-message
+      = errors_list_for(@doctor, :experience)
+.ui.divider
+.ui.inline.fields
+  = f.label :qualification_id, 'Choose a Qualification'
+  = f.collection_radio_buttons :qualification_id, Qualification.all, :id, :name do |b|
+    .field
+      .ui.radio.checkbox
+        = b.radio_button
+        = b.label
+.ui.styled.fluid.accordion
+  .title
+    .ui.tiny.header
+      %i.dropdown.icon
+      Choose a specialization
+  .content
+    .ui.three.fields
+      = f.collection_radio_buttons :specialization_id, Specialization.sort_by_name, :id, :name do |b|
+        .field
+          .ui.radio.checkbox
+            = b.radio_button
+            = b.label
+.ui.divider
+.field
+  .ui.tiny.header Other Options
+  .ui.checkbox
+    = f.check_box :verified
+    = f.label :verified, 'RBMIS Verified'
+
+.ui.header Working hours
+= f.fields_for :schedules, (@schedule || @doctor.schedules.build) do |schedule|
+  = schedule.hidden_field :hospital_id, value: @hospital.id
+  %table.ui.celled.compact.structured.table
+    %thead
+      %tr
+        %th(rowspan="3") Working Day
+        %th(colspan="2") Morning
+        %th(colspan="2") Noon / Evening
+      %tr
+        %th From
+        %th To
+        %th From
+        %th To
+    %tbody
+      %tr
+        %th Sunday
+        %td(width="95")= schedule.text_field :sunday_morning_from, value: ampm(@doctor.schedules.first.sunday_morning_from)
+        %td(width="95")= schedule.text_field :sunday_morning_to, value: ampm(@doctor.schedules.first.sunday_morning_to)
+        %td(width="95")= schedule.text_field :sunday_noon_from, value: ampm(@doctor.schedules.first.sunday_noon_from)
+        %td(width="95")= schedule.text_field :sunday_noon_to, value: ampm(@doctor.schedules.first.sunday_noon_to)
+      %tr
+        %th Monday
+        %td(width="95")= schedule.text_field :monday_morning_from, value: ampm(@doctor.schedules.first.monday_morning_from)
+        %td(width="95")= schedule.text_field :monday_morning_to, value: ampm(@doctor.schedules.first.monday_morning_to)
+        %td(width="95")= schedule.text_field :monday_noon_from, value: ampm(@doctor.schedules.first.monday_noon_from)
+        %td(width="95")= schedule.text_field :monday_noon_to, value: ampm(@doctor.schedules.first.monday_noon_to)
+      %tr
+        %th Tuesday
+        %td(width="95")= schedule.text_field :tuesday_morning_from, value: ampm(@doctor.schedules.first.tuesday_morning_from)
+        %td(width="95")= schedule.text_field :tuesday_morning_to, value: ampm(@doctor.schedules.first.tuesday_morning_to)
+        %td(width="95")= schedule.text_field :tuesday_noon_from, value: ampm(@doctor.schedules.first.tuesday_noon_from)
+        %td(width="95")= schedule.text_field :tuesday_noon_to, value: ampm(@doctor.schedules.first.tuesday_noon_to)
+      %tr
+        %th Wednesday
+        %td(width="95")= schedule.text_field :wednesday_morning_from, value: ampm(@doctor.schedules.first.wednesday_morning_from)
+        %td(width="95")= schedule.text_field :wednesday_morning_to, value: ampm(@doctor.schedules.first.wednesday_morning_to)
+        %td(width="95")= schedule.text_field :wednesday_noon_from, value: ampm(@doctor.schedules.first.wednesday_noon_from)
+        %td(width="95")= schedule.text_field :wednesday_noon_to, value: ampm(@doctor.schedules.first.wednesday_noon_to)
+      %tr
+        %th Thursday
+        %td(width="95")= schedule.text_field :thursday_morning_from, value: ampm(@doctor.schedules.first.thursday_morning_from)
+        %td(width="95")= schedule.text_field :thursday_morning_to, value: ampm(@doctor.schedules.first.thursday_morning_to)
+        %td(width="95")= schedule.text_field :thursday_noon_from, value: ampm(@doctor.schedules.first.thursday_noon_from)
+        %td(width="95")= schedule.text_field :thursday_noon_to, value: ampm(@doctor.schedules.first.thursday_noon_to)
+      %tr
+        %th Friday
+        %td(width="95")= schedule.text_field :friday_morning_from, value: ampm(@doctor.schedules.first.friday_morning_from)
+        %td(width="95")= schedule.text_field :friday_morning_to, value: ampm(@doctor.schedules.first.friday_morning_to)
+        %td(width="95")= schedule.text_field :friday_noon_from, value: ampm(@doctor.schedules.first.friday_noon_from)
+        %td(width="95")= schedule.text_field :friday_noon_to, value: ampm(@doctor.schedules.first.friday_noon_to)
+      %tr
+        %th Saturday
+        %td(width="95")= schedule.text_field :saturday_morning_from, value: ampm(@doctor.schedules.first.saturday_morning_from)
+        %td(width="95")= schedule.text_field :saturday_morning_to, value: ampm(@doctor.schedules.first.saturday_morning_to)
+        %td(width="95")= schedule.text_field :saturday_noon_from, value: ampm(@doctor.schedules.first.saturday_noon_from)
+        %td(width="95")= schedule.text_field :saturday_noon_to, value: ampm(@doctor.schedules.first.saturday_noon_to)

@@ -1,0 +1,30 @@
+- breadcrumb :qualifications
+.ui.centered.grid
+  .four.wide.column
+    .ui.header
+      Listing qualifications
+.row
+  .four.wide.column
+  .four.wide.column= link_to '+New Qualification', new_qualification_path, class: 'ui primary button'
+.row  
+  .four.wide.column
+  .eight.wide.column
+    %table.ui.padded.collapsing.table
+      %thead
+        %tr
+          %th S.no
+          %th Name
+          %th.center.aligned Options
+
+      %tbody
+        - i = 0
+        - @qualifications.each do |qualification|
+          %tr
+            %td= i += 1
+            %td= qualification.name
+            %td
+              .ui.compact.buttons
+                = link_to 'Show', qualification, class: 'compact ui button primary'
+                = link_to 'Edit', edit_qualification_path(qualification), class: 'compact ui button'
+                = link_to 'Destroy', qualification, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'compact ui negative button'
+.ui.divider

@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  area_id: 
+  address: MyText
+  phone: MyString
+  bed_capacity: 1
+  appointment_charge: 9.99
+  aarogyasri: false
+  verified: false
+
+two:
+  name: MyString
+  area_id: 
+  address: MyText
+  phone: MyString
+  bed_capacity: 1
+  appointment_charge: 9.99
+  aarogyasri: false
+  verified: false

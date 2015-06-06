@@ -1,0 +1,25 @@
+.fixed
+  %nav.top-bar{"data-topbar" => "", :role => "navigation"}
+    %ul.title-area
+      %li.name
+        %h1
+          %a{:href => "#"} Admin
+      / Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone
+      %li.toggle-topbar.menu-icon
+        %a{:href => "#"}
+          %span Menu
+    %section.top-bar-section
+      / Right Nav Section
+      %ul.right
+        %li= link_to 'Doctors', doctors_path
+        %li.has-dropdown
+          %a{:href => "#"} Hi Bhanu!
+          %ul.dropdown
+            %li
+              %a{:href => "#"} First link in dropdown
+            %li
+              %a{:href => "#"} Active link in dropdown
+            %li= link_to 'Sign out', '#'
+      / Left Nav Section
+      %ul.left
+        %li= link_to 'Dashboard', controller: :access_panel, action: :dashboard

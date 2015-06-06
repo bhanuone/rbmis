@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  full_name: MyString
+  practice_name: MyString
+  email: MyString
+  phone: MyString
+  experience: 1
+  verified: false
+
+two:
+  full_name: MyString
+  practice_name: MyString
+  email: MyString
+  phone: MyString
+  experience: 1
+  verified: false

@@ -1,0 +1,30 @@
+- breadcrumb :city_areas, @city
+.ui.centered.stackable.grid
+  .sixteen.wide.column.center.aligned
+    .ui.header
+      Listing areas
+  .row
+    .two.wide.column
+    .four.wide.column.left.floated.right.aligned= link_to '+New Area', new_city_area_path, class: 'ui button primary'
+  .row
+    .four.wide.column
+    .ten.wide.column
+      %table.ui.padded.collapsing.table
+        %thead
+          %tr
+            %th S.no
+            %th Area
+            %th.center.aligned Options
+
+        %tbody
+          - i = 0
+          - @areas.each do |area|
+            %tr
+              %td= i += 1
+              %td= area.name
+              %td
+                .ui.compact.buttons
+                  = link_to 'Show', city_area_path(@city, area), class: 'ui primary button'
+                  = link_to 'Edit', edit_city_area_path(@city, area), class: 'ui button'
+                  = link_to 'Delete', city_area_path(@city, area), method: :delete, :data => { :confirm => 'Are you sure?' }, class: 'ui negative button'
+  .ui.divider

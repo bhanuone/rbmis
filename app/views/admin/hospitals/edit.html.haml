@@ -1,0 +1,6 @@
+- breadcrumb :edit_area_hospital, @area, @hospital
+.ui.centered.grid
+  %h3 Edit hospital
+  .twelve.wide.column
+    = form_for(@hospital, {url: area_hospital_path(@area, @hospital), html:{class: 'ui mediulm segment form'}}) do |f|
+      = render "form", f:f

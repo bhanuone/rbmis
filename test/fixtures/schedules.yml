@@ -1,0 +1,65 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  hospital_id: 
+  doctor_id: 
+  sunday_morning_from: 2015-04-29 22:42:32
+  sunday_morning_to: 2015-04-29 22:42:32
+  sunday_noon_from: 2015-04-29 22:42:32
+  sunday_noon_to: 2015-04-29 22:42:32
+  monday_morning_from: 2015-04-29 22:42:32
+  monday_morning_to: 2015-04-29 22:42:32
+  monday_noon_from: 2015-04-29 22:42:32
+  monday_noon_to: 2015-04-29 22:42:32
+  tuesday_morning_from: 2015-04-29 22:42:32
+  tuesday_morning_to: 2015-04-29 22:42:32
+  tuesday_noon_from: 2015-04-29 22:42:32
+  tuesday_noon_to: 2015-04-29 22:42:32
+  wednesday_morning_from: 2015-04-29 22:42:32
+  wednesday_morning_to: 2015-04-29 22:42:32
+  wednesday_noon_from: 2015-04-29 22:42:32
+  wednesday_noon_to: 2015-04-29 22:42:32
+  thursday_morning_from: 2015-04-29 22:42:32
+  thursday_morning_to: 2015-04-29 22:42:32
+  thursday_noon_from: 2015-04-29 22:42:32
+  thursday_noon_to: 2015-04-29 22:42:32
+  friday_morning_from: 2015-04-29 22:42:32
+  friday_morning_to: 2015-04-29 22:42:32
+  friday_noon_from: 2015-04-29 22:42:32
+  friday_noon_to: 2015-04-29 22:42:32
+  saturday_morning_from: 2015-04-29 22:42:32
+  saturday_morning_to: 2015-04-29 22:42:32
+  saturday_noon_from: 2015-04-29 22:42:32
+  saturday_noon_to: 2015-04-29 22:42:32
+
+two:
+  hospital_id: 
+  doctor_id: 
+  sunday_morning_from: 2015-04-29 22:42:32
+  sunday_morning_to: 2015-04-29 22:42:32
+  sunday_noon_from: 2015-04-29 22:42:32
+  sunday_noon_to: 2015-04-29 22:42:32
+  monday_morning_from: 2015-04-29 22:42:32
+  monday_morning_to: 2015-04-29 22:42:32
+  monday_noon_from: 2015-04-29 22:42:32
+  monday_noon_to: 2015-04-29 22:42:32
+  tuesday_morning_from: 2015-04-29 22:42:32
+  tuesday_morning_to: 2015-04-29 22:42:32
+  tuesday_noon_from: 2015-04-29 22:42:32
+  tuesday_noon_to: 2015-04-29 22:42:32
+  wednesday_morning_from: 2015-04-29 22:42:32
+  wednesday_morning_to: 2015-04-29 22:42:32
+  wednesday_noon_from: 2015-04-29 22:42:32
+  wednesday_noon_to: 2015-04-29 22:42:32
+  thursday_morning_from: 2015-04-29 22:42:32
+  thursday_morning_to: 2015-04-29 22:42:32
+  thursday_noon_from: 2015-04-29 22:42:32
+  thursday_noon_to: 2015-04-29 22:42:32
+  friday_morning_from: 2015-04-29 22:42:32
+  friday_morning_to: 2015-04-29 22:42:32
+  friday_noon_from: 2015-04-29 22:42:32
+  friday_noon_to: 2015-04-29 22:42:32
+  saturday_morning_from: 2015-04-29 22:42:32
+  saturday_morning_to: 2015-04-29 22:42:32
+  saturday_noon_from: 2015-04-29 22:42:32
+  saturday_noon_to: 2015-04-29 22:42:32

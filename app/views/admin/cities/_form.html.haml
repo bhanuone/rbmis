@@ -1,0 +1,8 @@
+.field
+  = f.label :name, "City"    
+  = f.text_field :name, placeholder: 'City name'
+  = errors_list_for(@city, :name)
+.ui.buttons
+  = link_to 'Cancel', state_cities_path(@state), class: 'ui button'
+  .or
+  = f.submit 'Save', class: "ui positive button"

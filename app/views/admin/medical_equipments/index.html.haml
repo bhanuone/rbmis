@@ -1,0 +1,30 @@
+- breadcrumb :medical_equipments
+.ui.centered.grid
+  .four.wide.column
+    .ui.header
+      Listing medical equipments
+.row
+  .four.wide.column
+  .four.wide.column= link_to '+New medical equipment', new_medical_equipment_path, class: 'ui button primary'
+.row  
+  .four.wide.column
+  .eight.wide.column
+    %table.ui.padded.collapsing.table
+      %thead
+        %tr
+          %th S.no
+          %th Name
+          %th.center.aligned Options
+
+      %tbody
+        - i = 0
+        - @medical_equipments.each do |medical_equipment|
+          %tr
+            %td= i += 1
+            %td= medical_equipment.name
+            %td
+              .ui.compact.buttons
+                = link_to 'Show', medical_equipment, class: 'compact ui button primary'
+                = link_to 'Edit', edit_medical_equipment_path(medical_equipment), class: 'compact ui button'
+                = link_to 'Delete', medical_equipment, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'compact ui negative button'
+.ui.divider

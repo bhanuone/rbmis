@@ -1,0 +1,20 @@
+= form_for @speciality, html: {class: 'ui form'} do |f|   
+  .field
+    = f.label :name, 'Name:'
+    = f.text_field :name, placeholder: 'Speciality name'
+    = errors_list_for(@speciality, :name)
+  .field
+    = f.label :description, 'Description:'
+    = f.text_area :description, placeholder: 'Enter some description'
+    = errors_list_for(@speciality, :description)
+  .ui.inline.fields
+    = f.label :treatment_category_id, 'Choose a treatment category'
+    = f.collection_radio_buttons :treatment_category_id, TreatmentCategory.all, :id, :name do |b|
+      .field
+        .ui.radio.checkbox
+          = b.radio_button
+          = b.label
+  .ui.buttons
+    = link_to 'Cancel', specialities_path, class: 'ui button'
+    .or
+    = f.submit 'Save', class: "ui positive button"

@@ -1,0 +1,9 @@
+= form_for @treatment_category, html: {class: 'ui medium form segment'} do |f|
+  .field
+    = f.label :name, "Name"    
+    = f.text_field :name, placeholder: 'Treatment category name'
+    = errors_list_for(@treatment_category, :name)
+  .ui.buttons
+    = link_to 'Cancel', treatment_categories_path, class: 'ui button'
+    .or
+    = f.submit 'Save', class: "ui positive button"

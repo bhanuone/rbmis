@@ -1,0 +1,14 @@
+= form_for @specialization, html: {class: 'ui form'} do |f|
+  .ui.two.fields
+    .field
+      = f.label :name, 'Name'
+      = f.text_field :name, placeholder: 'Specialization name'
+      = errors_list_for(@specialization, :name)
+    .field
+      = f.label :alias, 'Alias'
+      = f.text_field :alias, placeholder: 'Alias'
+      = errors_list_for(@specialization, :alias)
+  .ui.buttons
+    = link_to 'Cancel', specializations_path, class: 'ui button'
+    .or
+    = f.submit 'Save', class: 'ui positive button'

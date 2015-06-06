@@ -1,0 +1,108 @@
+.two.fields
+  .required.field
+    = f.label :name
+    = f.text_field :name
+    .error-message
+      = errors_list_for(@hospital, :name)
+  .required.field
+    = f.label :phone
+    = f.text_field :phone, placeholder: 'Landline with STD Code (or) 10-digit mobile number'
+    .error-message
+      = errors_list_for(@hospital, :phone)
+.two.fields
+  .required.field
+    = f.label :bed_capacity
+    = f.text_field :bed_capacity, placeholder: 'eg: 200'
+    .error-message
+      = errors_list_for(@hospital, :bed_capacity)
+  .required.field
+    = f.label :appointment_charge
+    = f.text_field :appointment_charge, placeholder: 'eg: 300'
+    .error-message
+      = errors_list_for(@hospital, :appointment_charge)
+.two.fields
+  .required.field
+    = f.label :address
+    = f.text_area :address
+    .error-message
+      = errors_list_for(@hospital, :address)
+  .required.field
+    = f.label :speciality_ids, 'Select specialities'
+    = f.select :speciality_ids, Speciality.sort_by_name.collect{|s| [s.name, s.id]}, {}, {multiple: true}
+
+.ui.segment
+  .ui.tiny.dividing.header Select categories
+  .ui.three.fields
+    = f.collection_check_boxes :hospital_category_ids, HospitalCategory.all, :id, :name do |b|
+      .field
+        .ui.checkbox
+          = b.check_box
+          = b.label
+.ui.styled.fluid.accordion
+  .active.title
+    .ui.tiny.header
+      %i.dropdown.icon
+      Select Diagnostic facilities
+  .active.content
+    .ui.three.fields
+      = f.collection_check_boxes :diagnostic_facility_ids, DiagnosticFacility.all, :id, :name do |b|
+        .field
+          .ui.checkbox
+            = b.check_box
+            = b.label
+  .active.title
+    .ui.tiny.header
+      %i.dropdown.icon
+      Select Medical Equipment
+  .active.content
+    .ui.three.fields
+      = f.collection_check_boxes :medical_equipment_ids, MedicalEquipment.all, :id, :name do |b|
+        .field
+          .ui.checkbox
+            = b.check_box
+            = b.label
+  .active.title
+    .ui.tiny.header
+      %i.dropdown.icon
+      Select Other facilities
+  .active.content
+    .ui.three.fields
+      = f.collection_check_boxes :other_facility_ids, OtherFacility.all, :id, :name do |b|
+        .field
+          .ui.checkbox
+            = b.check_box
+            = b.label
+  -# .title
+    .ui.tiny.header
+      %i.dropdown.icon
+      Select categories
+  -# .content
+    .ui.three.fields
+      = f.collection_check_boxes :hospital_category_ids, HospitalCategory.all, :id, :name do |b|
+        .field
+          .ui.checkbox
+            = b.check_box
+            = b.label
+.ui.divider
+.ui.fields
+  .ui.dividing.header 
+    %h4 Hospital options
+  .field
+    .ui.checkbox
+      = f.check_box :aarogyasri
+      = f.label :aarogyasri
+  .field
+    .ui.checkbox
+      = f.check_box :verified
+      = f.label :verified
+.ui.buttons
+  = link_to 'Back', area_hospitals_path(@area), class: 'ui large button'
+  .or
+  = f.submit 'Save', class: 'ui large button positive'
+:javascript
+  $(document).ready(function() {
+    $('#hospital_speciality_ids').tokenize({sortable: true,
+                                            nbDropdownElements: 6,
+                                            placeholder: 'Start typing specialities',
+                                            newElements: false});
+  });

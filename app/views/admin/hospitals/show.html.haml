@@ -1,0 +1,141 @@
+- breadcrumb :area_hospital, @area, @hospital
+.ui.centered.grid
+  .twelve.wide.column
+    .ui.three.column.grid.segment
+      .row
+        .twelve.wide.column
+          .ui.header
+            %i.hospital.icon
+            = @hospital.name
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.ui.top.aligned.marker.icon
+            .content
+              .header Address
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = "#{@hospital.address},"
+                .item
+                  %i.right.triangle.icon
+                  = "#{@area.name},"
+                .item
+                  %i.right.triangle.icon
+                  = "#{@area.city.name},"
+                .item
+                  %i.right.triangle.icon
+                  = "#{@area.city.state.name}."
+                .item
+                  %i.right.triangle.icon
+                  = "Contact no: #{@hospital.phone}"
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.info.circle.icon.top.aligned
+            .content
+              .header Other Information
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = "Bed Capacity: #{@hospital.bed_capacity}"
+                .item
+                  %i.right.triangle.icon
+                  = "Appointment Charge: #{@hospital.appointment_charge}"
+                .item
+                  %i.right.triangle.icon
+                  = "Aarogyasri availability: %s" % (@hospital.aarogyasri ? 'Yes' : 'No')
+                .item
+                  %i.right.triangle.icon
+                  = "RBMIS Verified: %s" % (@hospital.verified ? 'Yes' : 'No')
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.top.aligned.options.icon
+            .content
+              .header Options
+              .list
+                .item
+                  .tiny.basic.vertical.ui.buttons
+                    = link_to "Add New Doctor", new_hospital_doctor_path(@hospital), class: 'ui button'
+                    = link_to "Add Existing Doctor", new_hospital_schedule_path(@hospital), class: 'ui button'
+                    = link_to "Edit Hospital", edit_area_hospital_path, class: 'ui button'
+                    = link_to "Delete hospital", area_hospital_path, method: :delete, data: { confirm: 'Are you sure?' }, class: 'ui button'
+      .ui.divider
+      .sixteen.wide.column
+        .ui.vertical.segment
+          .ui.header
+            %i.first.group.icon
+            .content Available Doctors
+          - if @hospital.schedules.any?
+            .ui.styled.fluid.accordion
+              - @doctors_and_schedules.each do |doctor, schedule|
+                .title
+                  %i.dropdown.icon
+                  = doctor.full_name
+                .content
+                  %table.ui.compact.celled.structured.table
+                    %thead
+                      %tr
+                        %th(rowspan="3") Day
+                        %th.center.aligned(colspan="4")
+                          Timings
+                          = link_to unlink_hospital_doctor_path(@hospital, doctor), data:{confirm:"Are you sure?"}, class: 'ui circular icon button', title: 'Delete' do
+                            %i.trash.icon
+                          = link_to edit_hospital_doctor_path(@hospital, doctor), class: 'ui circular icon button', title: 'Edit' do
+                            %i.edit.icon
+                      %tr
+                        %th.center.aligned(colspan="2") Morning
+                        %th.center.aligned(colspan="2") Evening
+                      %tr
+                        - 2.times do
+                          %th.center.aligned From
+                          %th.center.aligned To
+                    %tbody
+                      - sunday = DateTime.now.beginning_of_week(start_day = :sunday)
+                      - saturday = sunday + 6
+                      - (sunday..saturday).each do |d|
+                        %tr
+                          %th= d.strftime('%A')
+                          %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_morning_from"])
+                          %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_morning_to"])
+                          %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_noon_from"])
+                          %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_noon_to"])
+          - else
+            .ui.header No Doctors found
+        .ui.vertical.segment
+          .ui.header
+            %i.treatment.icon
+            .content Specialities
+          .ui.three.column.padded.grid
+            - @hospital.specialities.each do |speciality|
+              .column
+                %i.right.triangle.icon
+                = speciality.name
+        .ui.vertical.segment
+          .ui.header
+            %i.heartbeat.icon
+            .content Diagnostic facilities
+          .ui.three.column.padded.grid
+            - @hospital.diagnostic_facilities.each do |diagnostic_facility|
+              .column
+                %i.right.triangle.icon
+                = diagnostic_facility.name
+        .ui.vertical.segment
+          .ui.header
+            %i.first.aid.icon
+            .content Medical Equipment
+          .ui.three.column.padded.grid
+            - @hospital.medical_equipments.each do |medical_equipment|
+              .column
+                %i.right.triangle.icon
+                = medical_equipment.name
+        .ui.vertical.segment
+          .ui.header
+            %i.first.aid.icon
+            .content Other Facilities
+          .ui.three.column.padded.grid
+            - @hospital.other_facilities.each do |other_facility|
+              .column
+                %i.right.triangle.icon
+                = other_facility.name

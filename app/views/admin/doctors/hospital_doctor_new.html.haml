@@ -1,0 +1,14 @@
+- breadcrumb :new_hospital_doctor, @hospital
+.ui.centered.grid
+  .twelve.wide.column
+    = form_for @doctor, url:{action: :create, hospital_id: @hospital.id}, html:{class: 'ui medium form segment'} do |f|
+      .ui.small.header= "Add Doctor to %s" % @hospital.name
+      = render partial:"hospital_doctor_form", locals:{f:f}
+      .ui.buttons
+        = link_to 'Cancel', area_hospital_path(@hospital.area, @hospital), class: 'ui negative button'
+        = f.submit 'Save',  class: 'ui primary button'
+        = f.submit 'Save and Add Doctor', class: 'ui primary button'
+    
+
+:javascript
+  $('.ui.table input').datetimepicker({datepicker:false, closeOnDateSelect:true, format:'g:i A', lazyInit:true, minTime:'6:00', maxTime:'22:00', step:30, defaultTime:'12:00'});

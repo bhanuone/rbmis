@@ -1,0 +1,7 @@
+- breadcrumb :edit_country_state, @country, @state
+.ui.centered.grid
+  .header
+    %h4 Edit state
+  .eight.wide.column
+    = form_for @state, {url: country_state_path(@country, @state), html: {class: 'ui form'}} do |f|   
+      = render 'form', f: f

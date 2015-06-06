@@ -1,0 +1,34 @@
+- breadcrumb :specialities
+.ui.centered.grid
+  .three.wide.column
+    .ui.header
+      Listing specialities
+.row
+  .three.wide.column
+  .four.wide.column= link_to 'New Speciality', new_speciality_path, class: 'ui button primary'
+.row  
+  .three.wide.column
+  .ten.wide.column
+    %table.ui.padded.table
+      %thead
+        %tr
+          %th S.no
+          %th Name
+          %th Category
+          %th Description
+          %th.center.aligned Options
+
+      %tbody
+        - i = 0
+        - @specialities.each do |speciality|
+          %tr
+            %td= i += 1
+            %td= speciality.name
+            %td= speciality.treatment_category.name
+            %td= speciality.description
+            %td
+              .ui.compact.vertical.buttons
+                = link_to 'Show', speciality, class: 'ui button primary'
+                = link_to 'Edit', edit_speciality_path(speciality), class: 'ui button'
+                = link_to 'Delete', speciality, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'ui negative button'
+.ui.divider

@@ -1,0 +1,102 @@
+%h1 Listing schedules
+
+%table
+  %thead
+    %tr
+      %th Hospital
+      %th Doctor
+      %th(colspan="4") Sunday
+      %th(colspan="4") Monday
+      %th(colspan="4") Tuesday
+      %th(colspan="4") Wednesday
+      %th(colspan="4") Thursday
+      %th(colspan="4") Friday
+      %th(colspan="4") Saturday
+      %th
+      %th
+      %th
+
+  %tbody
+    - @schedules.each do |schedule|
+      %tr
+        %th(colspan="2") Morning
+        %th(colspan="2") Evening
+        %th(colspan="2") Morning
+        %th(colspan="2") Evening
+        %th(colspan="2") Morning
+        %th(colspan="2") Evening
+        %th(colspan="2") Morning
+        %th(colspan="2") Evening
+        %th(colspan="2") Morning
+        %th(colspan="2") Evening
+        %th(colspan="2") Morning
+        %th(colspan="2") Evening
+        %th(colspan="2") Morning
+        %th(colspan="2") Evening
+      %tr
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+        %th From
+        %th To
+      %tr
+        %td= schedule.hospital
+        %td= schedule.doctor
+        %td= schedule.sunday_morning_from
+        %td= schedule.sunday_morning_to
+        %td= schedule.sunday_noon_from
+        %td= schedule.sunday_noon_to
+        %td= schedule.monday_morning_from
+        %td= schedule.monday_morning_to
+        %td= schedule.monday_noon_from
+        %td= schedule.monday_noon_to
+        %td= schedule.tuesday_morning_from
+        %td= schedule.tuesday_morning_to
+        %td= schedule.tuesday_noon_from
+        %td= schedule.tuesday_noon_to
+        %td= schedule.wednesday_morning_from
+        %td= schedule.wednesday_morning_to
+        %td= schedule.wednesday_noon_from
+        %td= schedule.wednesday_noon_to
+        %td= schedule.thursday_morning_from
+        %td= schedule.thursday_morning_to
+        %td= schedule.thursday_noon_from
+        %td= schedule.thursday_noon_to
+        %td= schedule.friday_morning_from
+        %td= schedule.friday_morning_to
+        %td= schedule.friday_noon_from
+        %td= schedule.friday_noon_to
+        %td= schedule.saturday_morning_from
+        %td= schedule.saturday_morning_to
+        %td= schedule.saturday_noon_from
+        %td= schedule.saturday_noon_to
+        %td= link_to 'Show', schedule
+        %td= link_to 'Edit', edit_schedule_path(schedule)
+        %td= link_to 'Destroy', schedule, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Schedule', new_schedule_path

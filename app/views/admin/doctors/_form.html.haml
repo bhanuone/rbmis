@@ -1,0 +1,59 @@
+= form_for @doctor, {html:{class: 'ui medium form segment'}} do |f|
+  .two.fields
+    .required.field
+      = f.label :full_name, 'First name'
+      = f.text_field :full_name, class: "bhanu", id: 'bhsdf'
+      .error-message
+        = errors_list_for(@doctor, :full_name)
+    .required.field
+      = f.label :practice_name, 'Last name'
+      = f.text_field :practice_name
+      .error-message
+        = errors_list_for(@doctor, :practice_name)
+  .two.fields
+    .field
+      = f.label :phone
+      = f.text_field :phone, placeholder: 'STD code - landline/10-digit mobile number'
+      .error-message
+        = errors_list_for(@doctor, :phone)
+    .field
+      = f.label :email
+      = f.text_field :email, placeholder: 'doctor@example.com'
+      .error-message
+        = errors_list_for(@doctor, :email)
+  .two.fields
+    .required.field
+      = f.label :experience
+      = f.text_field :experience, placeholder: 'eg: 10'
+      .error-message
+        = errors_list_for(@doctor, :experience)
+  .ui.divider
+  .ui.inline.fields
+    = f.label :qualification_id, 'Choose a Qualification'
+    = f.collection_radio_buttons :qualification_id, Qualification.all, :id, :name do |b|
+      .field
+        .ui.radio.checkbox
+          = b.radio_button
+          = b.label
+  .required.field
+    = f.label :specialization_id, 'Specialization'
+    = f.select :specialization_id, options_for_select(Specialization.sort_by_name.collect{|s| [s.name, s.id, class: 'item'] }), {prompt: 'Select Specialization'}, class: 'ui fluid search selection dropdown'
+    
+  .ui.divider
+  .field
+    .ui.tiny.header Other Options
+    .ui.checkbox
+      = f.check_box :verified
+      = f.label :verified, 'RBMIS Verified'
+  .ui.buttons
+    = link_to 'Back', doctors_path, class: 'ui large button'
+    .or
+    = f.submit 'Save', class: 'ui large button positive'
+:javascript
+  $(document).ready(function(){
+     $('.specializations.button').click(function(){
+        $('#specializations').modal('show').modal({
+        onHide: function() {console.log('bhanu');}
+        });
+     });
+  });

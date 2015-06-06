@@ -1,0 +1,30 @@
+- breadcrumb :hospital_categories
+.ui.centered.grid
+  .four.wide.column
+    .ui.header
+      Hospital categories
+.row
+  .four.wide.column
+  .four.wide.column= link_to '+New Hospital Category', new_hospital_category_path, class: 'ui button primary'
+.row  
+  .four.wide.column
+  .twelve.wide.column
+    %table.ui.padded.collapsing.table
+      %thead
+        %tr
+          %th S.no
+          %th Name
+          %th.center.aligned Options
+
+      %tbody
+        - i = 0
+        - @hospital_categories.each do |hospital_category|
+          %tr
+            %td= i += 1
+            %td= hospital_category.name
+            %td
+              .ui.buttons
+                = link_to 'Show', hospital_category, class: 'compact ui button primary'
+                = link_to 'Edit', edit_hospital_category_path(hospital_category), class: 'compact ui button'
+                = link_to 'Delete', hospital_category, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'compact ui negative button'
+  .ui.divider

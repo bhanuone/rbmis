@@ -1,0 +1,73 @@
+- breadcrumb :city_selector
+.ui.centered.grid
+  .four.wide.column
+    .ui.header Find Hospitals based on Location
+  .row
+    .ten.wide.column
+      .ui.form
+        .three.fields
+          .field
+            = label_tag 'Country:'
+            = select_tag :country_id, options_from_collection_for_select(@countries, "id", "name"), prompt: "Select country"
+          .field
+            = label_tag 'State:'
+            = select_tag :state_id, '', prompt:'Select state', disabled: true
+          .field
+            = label_tag 'City:'
+            = select_tag :city_id, '', prompt:'Select city', disabled: true
+  .ui.divider
+
+
+
+
+
+
+:javascript
+  $('#country_id').on('change', function(){
+    $this = $(this)
+    if($.isNumeric($this.val())) {
+      $states_list = $('#state_id');
+      $states_list.children().not(':first-child').remove();
+      states_url = '/countries/' + $this.val() + '/states.json';
+      $.ajax({
+        url: states_url,
+        success: function(data) {
+          $.each(data, function(index, obj){
+            $states_list.append('<option value="' + obj.id + '">' + obj.name + '</option>')
+          });
+          $states_list.removeAttr("disabled")
+        }
+      })
+    }
+    else {
+      $('#state_id, #city_id').attr("disabled", "disabled").children().not(':first-child').remove();
+    }
+  });
+  $('#state_id').on('change', function(){
+    $this = $(this)
+    if($.isNumeric($this.val())) {
+      $cities_list = $('#city_id');
+      $cities_list.children().not(':first-child').remove();
+      cities_url = '/states/' + $this.val() + '/cities.json';
+      $.ajax({
+        url: cities_url,
+        success: function(data) {
+          $.each(data, function(index, obj){
+            $cities_list.append('<option value="' + obj.id + '">' + obj.name + '</option>')
+          });
+          $cities_list.removeAttr("disabled");
+        }
+      })
+    }
+    else {
+      $('#city_id').attr("disabled", "disabled").children().not(':first-child').remove();
+    }
+  });
+  $('#city_id').on('change', function(){
+    $this = $(this);
+    if($.isNumeric($this.val())) {
+      path_name = '/cities/' + $this.val() + '/areas';
+      location.href = path_name;
+    }
+  });
+

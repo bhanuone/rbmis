@@ -1,0 +1,6 @@
+- breadcrumb :new_area_hospital, @area
+.ui.centered.grid
+  %h3 New Hospital
+  .twelve.wide.column
+    = form_for @hospital, {url: area_hospitals_path(@area), html:{class: 'ui medium form segment'}} do |f|
+      = render "form", f: f

@@ -1,0 +1,52 @@
+- breadcrumb @specialization
+.ui.centered.grid
+  .twelve.wide.column
+    .ui.three.column.grid.segment
+      .row
+        .three.column.wide
+          .ui.header= @specialization.name
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.ui.top.aligned.building.outline.icon
+            .content
+              .header Specialization Details
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = "Name: #{@specialization.name}"
+                .item
+                  %i.right.triangle.icon
+                  = "Alias: #{@specialization.alias}"
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.info.circle.icon.top.aligned
+            .content
+              .header Professional details
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = "Doctors with this specialization: #{@specialization.doctors.count}"
+                .item
+                  %i.right.triangle.icon
+                  Specialization: Nephrologist
+                .item
+                  %i.right.triangle.icon
+                  Experience:years
+                .item
+                  %i.right.triangle.icon
+                  RBMIS Verified: Yes
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.top.aligned.options.icon
+            .content
+              .header Options
+              .list
+                .item
+                  .tiny.basic.ui.buttons
+                    = link_to 'Back', specializations_path, class: 'ui button'
+                    = link_to 'Edit', edit_specialization_path(@specialization), class: 'ui button'
+                    = link_to 'Delete', @specialization, method: :delete, data: { :confirm => 'Are you sure?' }, class: 'ui button'
+      .ui.divider

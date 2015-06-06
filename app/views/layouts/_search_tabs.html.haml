@@ -1,0 +1,16 @@
+.row
+      .large-offset-1.large-10.columns
+        %ul.tabs.contained(data-tab="")
+          %li.tab-title.active= link_to 'Hospitals', "#hospitals"
+          %li.tab-title= link_to 'Doctors', '#doctors'
+          %li.tab-title= link_to 'Clinics', '#clinics'
+          %li.tab-title= link_to 'Diagnostic Centers', '#diagnostic-centers'
+        .tabs-content.contained
+          .content.active#hospitals
+            = render 'layouts/search'
+          .content#doctors
+            = render 'layouts/search'
+          .content#clinics
+            = render 'layouts/search'
+          .content#diagnostic-centers
+            = render 'layouts/search'

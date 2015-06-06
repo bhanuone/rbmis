@@ -1,0 +1,17 @@
+- breadcrumb :country_selector
+.ui.padded.centered.grid
+  .four.wide.column
+    .ui.header Manage states on country basis
+  .row
+    .ten.wide.column
+      .ui.form
+        .field
+          = label_tag 'Country:'
+          = select_tag :country_id, options_from_collection_for_select(@countries, 'id', 'name'), prompt: 'Select country'
+:javascript
+  $('#country_id').on('change', function(){
+    if($(this).val()) {
+      console.log(location.host + '/countries/' + $(this).val() + '/states');
+      location.href = '/countries/' + $(this).val() + '/states';
+    }
+  })

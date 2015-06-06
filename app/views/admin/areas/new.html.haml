@@ -1,0 +1,7 @@
+- breadcrumb :new_city_area, @city
+.ui.centered.grid
+  .header
+    %h4 New area
+  .twelve.wide.column
+    = form_for @area, {url: city_areas_path(@city), html: {class: 'ui large form segment'}} do |f|
+      = render 'form', f: f

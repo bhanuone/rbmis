@@ -1,0 +1,131 @@
+.ui.centered.page.grid
+  .row
+    .three.wide.column
+      .ui.header Admin Panel
+  .row
+    .sixteen.wide.column
+      .ui.stackable.three.column.grid.segment
+        .column
+          .ui.small.header Areal data
+          .ui.animated.list
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to "Countries", countries_path
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to "States", action: :country_selector
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to "Cities", action: :state_selector
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to "Areas", action: :city_selector
+        .column
+          .ui.small.header Hospital Data
+          .ui.animated.list
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Hospital categories', hospital_categories_path
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Hospitals', action: :area_selector
+            .item
+              %i.right.triangle.icon
+              - q = 'bhanu'
+              .content
+                = link_to 'Specialities', specialities_path
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Diagnostic Facilities', diagnostic_facilities_path
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Other Facilities', other_facilities_path
+
+        .column
+          .ui.small.header Doctor Data
+          .ui.animated.list
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Doctors', doctors_path
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Doctor Qualifications', qualifications_path
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Doctor Specializations', specializations_path
+        .ui.divider
+        .column
+          .ui.small.header Diagnostic Centers Data
+          .ui.animated.list
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Diagnostic Centers', '#'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Tests', '#'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Diagnostic Imaging', '#'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Laboratory tests', '#'
+        .column
+          .ui.small.header Medical Data
+          .ui.animated.list
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Hospitals', '#'
+            .item
+              %i.right.triangle.icon
+              - q = 'bhanu'
+              .content
+                = link_to 'Doctors', 'http://google.co.in/?q=' +  q + ' prakash'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Clinics', '#'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Diagnostic Centers', '#'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Ambulance Services', '#'
+        .column
+          .ui.small.header Manage Resources
+          .ui.animated.list
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Hospital Specialtiies', specialities_path
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Doctor Qualifications', '#'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Diagnostic facilities', '#'
+            .item
+              %i.right.triangle.icon
+              .content
+                = link_to 'Treatment Categories', treatment_categories_path
+        .ui.divider
+    -# .ui.stackable.three.column.grid.segment

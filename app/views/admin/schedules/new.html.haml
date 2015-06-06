@@ -1,0 +1,82 @@
+- if @add_doctor == 0
+  - breadcrumb :new_doctor_schedule, @doctor
+- else
+  - breadcrumb :add_doctor_to_hospital, @hospital
+.ui.centered.grid
+  .twelve.wide.column
+    = form_for @schedule, url:{controller: :schedules, action: :create}, html:{class:'ui form'} do |f|
+      - if @add_doctor == 1
+        .ui.small.header Doctor
+        .ui.field 
+          = f.select :doctor_id, @unlinked_doctors.collect {|d| [d.full_name, d.id, class: 'item']}, {prompt: 'Select Doctor'}, {class: 'ui fluid search selection dropdown'}
+        = f.hidden_field :hospital_id, value:@hospital.id
+        = f.hidden_field :redirect, value: @add_doctor
+      - else
+        .ui.small.header Hospital
+        .ui.field
+          = f.select :hospital_id, @unlinked_hospitals.collect {|h| ["#{h.name} - #{h.area.name}", h.id, class: 'item']}, {prompt: "Select Hospital"}, {class: 'ui fluid search selection dropdown'}
+        = f.hidden_field :doctor_id, value:@doctor.id
+        = f.hidden_field :redirect, value: @add_doctor
+      %table.ui.celled.compact.structured.table
+        %thead
+          %tr
+            %th(rowspan="2") Working Day
+            %th(colspan="2") Morning
+            %th(colspan="2") Noon/Evening
+          %tr
+            %th From
+            %th To
+            %th From
+            %th To
+        %tbody
+          %tr
+            %th Sunday
+            %td(width="95")= f.text_field :sunday_morning_from
+            %td(width="95")= f.text_field :sunday_morning_to
+            %td(width="95")= f.text_field :sunday_noon_from
+            %td(width="95")= f.text_field :sunday_noon_to
+          %tr
+            %th Monday
+            %td(width="95")= f.text_field :monday_morning_from
+            %td(width="95")= f.text_field :monday_morning_to
+            %td(width="95")= f.text_field :monday_noon_from
+            %td(width="95")= f.text_field :monday_noon_to
+          %tr
+            %th Tuesday
+            %td(width="95")= f.text_field :tuesday_morning_from
+            %td(width="95")= f.text_field :tuesday_morning_to
+            %td(width="95")= f.text_field :tuesday_noon_from
+            %td(width="95")= f.text_field :tuesday_noon_to
+          %tr
+            %th Wednesday
+            %td(width="95")= f.text_field :wednesday_morning_from
+            %td(width="95")= f.text_field :wednesday_morning_to
+            %td(width="95")= f.text_field :wednesday_noon_from
+            %td(width="95")= f.text_field :wednesday_noon_to
+          %tr
+            %th Thursday
+            %td(width="95")= f.text_field :thursday_morning_from
+            %td(width="95")= f.text_field :thursday_morning_to
+            %td(width="95")= f.text_field :thursday_noon_from
+            %td(width="95")= f.text_field :thursday_noon_to
+          %tr
+            %th Friday
+            %td(width="95")= f.text_field :friday_morning_from
+            %td(width="95")= f.text_field :friday_morning_to
+            %td(width="95")= f.text_field :friday_noon_from
+            %td(width="95")= f.text_field :friday_noon_to
+          %tr
+            %th Saturday
+            %td(width="95")= f.text_field :saturday_morning_from
+            %td(width="95")= f.text_field :saturday_morning_to
+            %td(width="95")= f.text_field :saturday_noon_from
+            %td(width="95")= f.text_field :saturday_noon_to
+      .ui.buttons
+        - if @add_doctor == 1
+          = link_to 'Cancel', area_hospital_path(@hospital.area, @hospital), class: 'ui negative button'
+        - else
+          = link_to 'Cancel', @doctor, class: 'ui negative button'
+        .or
+          = f.submit 'Save', class: 'ui primary button'
+:javascript
+  $('tbody td input').datetimepicker({datepicker:false, closeOnDateSelect:true, format:'g:i A', lazyInit:true, minTime:'6:00', maxTime:'22:00', step:30, defaultTime:'12:00'});

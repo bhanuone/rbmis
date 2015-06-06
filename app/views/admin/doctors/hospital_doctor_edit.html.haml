@@ -1,0 +1,13 @@
+- breadcrumb :edit_hospital_doctor, @hospital, @doctor
+.ui.centered.grid
+  .twelve.wide.column
+    .ui.small.header= "Edit Doctor - %s" % @doctor.full_name
+    = form_for @doctor, url:{action: :update}, html:{class: 'ui medium form segment'} do |f|
+      = render partial:"hospital_doctor_form", locals:{f:f}
+      .ui.buttons
+        = link_to "Cancel", '#', class: 'ui negative button'
+        .or
+        = f.submit "Update",  class: 'ui primary button'
+
+:javascript
+  $('tbody tr td input').datetimepicker({datepicker:false, closeOnDateSelect:true, format: 'g:i A', step:30});

@@ -1,0 +1,8 @@
+.field
+  = f.label :name, "State:"    
+  = f.text_field :name, placeholder: 'State name'
+  = errors_list_for(@state, :name)
+.ui.buttons
+  = link_to 'Cancel', country_states_path(@country), class: 'ui button'
+  .or
+  = f.submit 'Save', class: "ui positive button"

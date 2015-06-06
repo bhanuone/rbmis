@@ -1,0 +1,19 @@
+---
+development:
+  cloud_name: bhanua1
+  api_key: '328995878116565'
+  api_secret: g2O21nWd_N02c7kPDqEaJI0tIoI
+  enhance_image_tag: true
+  static_image_support: false
+production:
+  cloud_name: bhanua1
+  api_key: '328995878116565'
+  api_secret: g2O21nWd_N02c7kPDqEaJI0tIoI
+  enhance_image_tag: true
+  static_image_support: true
+test:
+  cloud_name: bhanua1
+  api_key: '328995878116565'
+  api_secret: g2O21nWd_N02c7kPDqEaJI0tIoI
+  enhance_image_tag: true
+  static_image_support: false

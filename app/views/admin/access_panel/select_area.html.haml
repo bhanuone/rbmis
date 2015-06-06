@@ -1,0 +1,91 @@
+.ui.fluid.centered.grid
+  .five.wide.column
+    .ui.header Manage hospitals based on Location
+  .twelve.wide.column
+    .ui.form
+      .four.fields
+        .field
+          = label_tag 'Country:'
+          = select_tag :country_id, options_from_collection_for_select(@countries, "id", "name"), prompt: "Select country"
+        .field
+          = label_tag 'State:'
+          = select_tag :state_id, '<option>Select State</option>'.html_safe, disabled: true
+        .field
+          = label_tag 'City:'
+          = select_tag :city_id, '<option>Select city</option>'.html_safe, disabled: true
+        .field
+          = label_tag 'Area:'
+          = select_tag :area_id, '<option>Select area</option>'.html_safe, disabled: true
+:javascript
+  $('#country_id').on('change', function(){
+    $this = $(this)
+    if($.isNumeric($this.val())) {
+      $states_list = $('#state_id');
+      $states_list.children().not(':first-child').remove();
+      states_url = '/countries/' + $this.val() + '/states.json';
+      $.ajax({
+        url: states_url,
+        success: function(data) {
+          if(data.length < 1) {
+            alert('no states found for this country');
+            return;
+          }
+          $.each(data, function(index, obj){
+            $states_list.append('<option value="' + obj.id + '">' + obj.name + '</option>')
+          });
+          $states_list.removeAttr("disabled")
+        }
+      })
+    }
+    else {
+      $('#state_id, #city_id, #area_id').attr("disabled", "disabled").children().not(':first-child').remove();
+    }
+  });
+  $('#state_id').on('change', function(){
+    $this = $(this)
+    if($.isNumeric($this.val())) {
+      $cities_list = $('#city_id');
+      $cities_list.children().not(':first-child').remove();
+      cities_url = '/states/' + $this.val() + '/cities.json';
+      $.ajax({
+        url: cities_url,
+        success: function(data) {
+          $.each(data, function(index, obj){
+            $cities_list.append('<option value="' + obj.id + '">' + obj.name + '</option>')
+          });
+          $cities_list.removeAttr("disabled");
+        }
+      })
+    }
+    else {
+      $('#city_id, #area_id').attr("disabled", "disabled").children().not(':first-child').remove();
+    }
+  });
+  $('#city_id').on('change', function(){
+    $this = $(this)
+    if($.isNumeric($this.val())) {
+      $areas_list = $('#area_id');
+      $areas_list.children().not(':first-child').remove();
+      areas_url = '/cities/' + $this.val() + '/areas.json';
+      $.ajax({
+        url: areas_url,
+        success: function(data) {
+          $.each(data, function(index, obj){
+            $areas_list.append('<option value="' + obj.id + '">' + obj.name + '</option>')
+          });
+          $areas_list.removeAttr("disabled");
+        }
+      })
+    }
+    else {
+      $('#area_id').attr("disabled", "disabled").children().not(':first-child').remove();
+    }
+  });
+  $('#area_id').on('change', function(){
+    $this = $(this);
+    if($.isNumeric($this.val())) {
+      hospitals_url = '/areas/' + $this.val() + '/hospitals';
+      location.href = hospitals_url;
+    }
+  });
+

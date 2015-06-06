@@ -1,0 +1,54 @@
+%table#timings
+  %thead
+    %tr
+      %th(rowspan="2") Working Day
+      %th(colspan="2") Session - 1
+      %th(colspan="2") Session - 2
+    %tr
+      %th From
+      %th To
+      %th From
+      %th To
+  %tbody
+    %tr
+      %th Sunday
+      %td(width="95")= f.text_field :sunday_morning_from, value: ampm(@doctor.schedules.first.sunday_morning_from)
+      %td(width="95")= f.text_field :sunday_morning_to, value: ampm(@doctor.schedules.first.sunday_morning_to)
+      %td(width="95")= f.text_field :sunday_noon_from, value: ampm(@doctor.schedules.first.sunday_noon_from)
+      %td(width="95")= f.text_field :sunday_noon_to, value: ampm(@doctor.schedules.first.sunday_noon_to)
+    %tr
+      %th Monday
+      %td(width="95")= f.text_field :monday_morning_from, value: ampm(@doctor.schedules.first.monday_morning_from)
+      %td(width="95")= f.text_field :monday_morning_to, value: ampm(@doctor.schedules.first.monday_morning_to)
+      %td(width="95")= f.text_field :monday_noon_from, value: ampm(@doctor.schedules.first.monday_noon_from)
+      %td(width="95")= f.text_field :monday_noon_to, value: ampm(@doctor.schedules.first.monday_noon_to)
+    %tr
+      %th Tuesday
+      %td(width="95")= f.text_field :tuesday_morning_from, value: ampm(@doctor.schedules.first.tuesday_morning_from)
+      %td(width="95")= f.text_field :tuesday_morning_to, value: ampm(@doctor.schedules.first.tuesday_morning_to)
+      %td(width="95")= f.text_field :tuesday_noon_from, value: ampm(@doctor.schedules.first.tuesday_noon_from)
+      %td(width="95")= f.text_field :tuesday_noon_to, value: ampm(@doctor.schedules.first.tuesday_noon_to)
+    %tr
+      %th Wednesday
+      %td(width="95")= f.text_field :wednesday_morning_from, value: ampm(@doctor.schedules.first.wednesday_morning_from)
+      %td(width="95")= f.text_field :wednesday_morning_to, value: ampm(@doctor.schedules.first.wednesday_morning_to)
+      %td(width="95")= f.text_field :wednesday_noon_from, value: ampm(@doctor.schedules.first.wednesday_noon_from)
+      %td(width="95")= f.text_field :wednesday_noon_to, value: ampm(@doctor.schedules.first.wednesday_noon_to)
+    %tr
+      %th Thursday
+      %td(width="95")= f.text_field :thursday_morning_from, value: ampm(@doctor.schedules.first.thursday_morning_from)
+      %td(width="95")= f.text_field :thursday_morning_to, value: ampm(@doctor.schedules.first.thursday_morning_to)
+      %td(width="95")= f.text_field :thursday_noon_from, value: ampm(@doctor.schedules.first.thursday_noon_from)
+      %td(width="95")= f.text_field :thursday_noon_to, value: ampm(@doctor.schedules.first.thursday_noon_to)
+    %tr
+      %th Friday
+      %td(width="95")= f.text_field :friday_morning_from, value: ampm(@doctor.schedules.first.friday_morning_from)
+      %td(width="95")= f.text_field :friday_morning_to, value: ampm(@doctor.schedules.first.friday_morning_to)
+      %td(width="95")= f.text_field :friday_noon_from, value: ampm(@doctor.schedules.first.friday_noon_from)
+      %td(width="95")= f.text_field :friday_noon_to, value: ampm(@doctor.schedules.first.friday_noon_to)
+    %tr
+      %th Saturday
+      %td(width="95")= f.text_field :saturday_morning_from, value: ampm(@doctor.schedules.first.saturday_morning_from)
+      %td(width="95")= f.text_field :saturday_morning_to, value: ampm(@doctor.schedules.first.saturday_morning_to)
+      %td(width="95")= f.text_field :saturday_noon_from, value: ampm(@doctor.schedules.first.saturday_noon_from)
+      %td(width="95")= f.text_field :saturday_noon_to, value: ampm(@doctor.schedules.first.saturday_noon_to)

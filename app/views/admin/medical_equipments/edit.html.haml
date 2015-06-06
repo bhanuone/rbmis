@@ -1,0 +1,10 @@
+- breadcrumb :edit_medical_equipment, @medical_equipment
+.ui.centered.grid
+  .header
+    %h4 Editing medical equipment
+  .four.column.row
+    .column
+    .column
+      = link_to 'Show', @medical_equipment, class: "ui button primary"
+  .eight.wide.column
+    = render 'form'

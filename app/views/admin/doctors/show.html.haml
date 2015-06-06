@@ -1,0 +1,100 @@
+- breadcrumb @doctor
+.ui.centered.grid
+  .twelve.wide.column
+    .ui.three.column.grid.segment
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.ui.top.aligned.doctor.icon
+            .content
+              .header= @doctor.full_name
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = "Qualification: #{@doctor.qualification.name}"
+                .item
+                  %i.right.triangle.icon
+                  = "Specialization: #{@doctor.specialization.name}"
+                .item
+                  %i.right.triangle.icon
+                  = "Experience: #{@doctor.experience} years"            
+                .item
+                  %i.right.triangle.icon
+                  = "RBMIS Verified: %s" % (@doctor.verified ? 'Yes' : 'No')
+        
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.ui.top.aligned.location.icon
+            .content
+              .header Contact details
+              .list
+                .item
+                  %i.right.triangle.icon
+                  = "Name: #{@doctor.full_name}"
+                .item
+                  %i.right.triangle.icon
+                  = "Phone: #{@doctor.phone}"
+                .item
+                  %i.right.triangle.icon
+                  = "Email: #{@doctor.email}"
+      .column.ui.basic.horizontal.segment
+        .ui.list
+          .item
+            %i.ui.top.aligned.settings.icon
+            .content
+              .header Options
+              .list
+                .item
+                  .ui.basic.vertical.blue.buttons
+                    = link_to new_doctor_schedule_path(@doctor), class: 'ui button' do
+                      +Add Hospital
+                    = link_to doctor_path, method: :delete, data:{confirm: "Are you sure?"}, class: 'ui button' do
+                      %i.trash.icon
+                      Delete
+                    = link_to edit_doctor_path, class: 'ui button' do
+                      %i.edit.icon
+                      Edit
+
+      .ui.divider
+      .six.wide.column
+        .ui.header
+          %i.hospital.icon
+          Working Hospitals & Timings
+      .sixteen.wide.column
+        - if @doctor.schedules.any?
+          .ui.styled.fluid.accordion
+            - @doctor.schedules.each do |schedule|
+              .active.title
+                %i.dropdown.icon
+                = schedule.hospital.name
+              .active.content
+                %table.ui.compact.celled.structured.table
+                  %thead
+                    %tr
+                      %th(rowspan="3") Day
+                      %th.center.aligned(colspan="4")
+                        Timings
+                        = link_to unlink_doctor_hospital_path(@doctor, schedule.hospital), data:{confirm:"Are you sure?"}, class: 'ui circular icon button', title: 'Delete' do
+                          %i.trash.icon
+                        = link_to edit_doctor_schedule_path(@doctor, schedule), class: 'circular ui icon button', title: 'Edit' do
+                          %i.edit.icon
+                    %tr
+                      %th.center.aligned(colspan="2") Morning
+                      %th.center.aligned(colspan="2") Evening
+                    %tr
+                      - 2.times do
+                        %th.center.aligned From
+                        %th.center.aligned To
+                  %tbody
+                    - sunday = DateTime.now.beginning_of_week(start_day = :sunday)
+                    - saturday = sunday + 6
+                    - (sunday..saturday).each do |d|
+                      %tr
+                        %th= d.strftime('%A')
+                        %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_morning_from"])
+                        %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_morning_to"])
+                        %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_noon_from"])
+                        %td.center.aligned= ampm(schedule[d.strftime('%A').downcase + "_noon_to"])
+        - else
+          .ui.header No Hospitals found

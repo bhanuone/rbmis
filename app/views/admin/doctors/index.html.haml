@@ -1,0 +1,35 @@
+-breadcrumb :doctors
+.ui.centered.grid
+  .two.wide.column
+    .ui.header Listing Doctors
+.row
+  .two.wide.column
+  .two.wide.column= link_to '+New Doctor', new_doctor_path, class: 'ui button primary'
+.row
+  .two.wide.column
+  .twelve.wide.column
+    %table.ui.compact.table
+      %thead
+        %tr
+          %th Full name
+          %th Practice name
+          %th Email
+          %th Phone
+          %th Experience
+          %th Verified
+          %th.center.aligned Options
+
+      %tbody
+        - @doctors.each do |doctor|
+          %tr
+            %td= doctor.full_name
+            %td= doctor.practice_name
+            %td= doctor.email
+            %td= doctor.phone
+            %td= doctor.experience
+            %td= doctor.verified
+            %td
+              .ui.buttons
+                = link_to 'Show', doctor, class: 'ui compact primary button'
+                = link_to 'Edit', edit_doctor_path(doctor), class: 'ui compact button'
+                = link_to 'Delete', doctor, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'ui compact negative button'

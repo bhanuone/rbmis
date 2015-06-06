@@ -1,0 +1,7 @@
+- breadcrumb :new_state_city, @state
+.ui.centered.grid
+  .header
+    %h4 New city
+  .eight.wide.column
+    = form_for @city, {url: state_cities_path(@state), html: {class: 'ui form'}} do |f|   
+      = render 'form', f: f

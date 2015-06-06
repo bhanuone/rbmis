@@ -1,0 +1,38 @@
+.ui.menu.fixed
+  .menu
+    %a.item{:href => "/"}
+      %i.home.icon
+      Home
+    - if admin_signed_in?
+      = link_to admin_root_path, class: 'item' do
+        = content_tag 'i', '', class: 'dashboard icon'
+        = 'Doashboard'
+    = link_to doctors_path, class: 'item' do
+      = content_tag 'i', '', class: 'doctor icon'
+      = 'Doctors'
+    %a.item
+      Contact Us
+    .right.menu
+      .ui.dropdown.item
+        - if admin_signed_in?
+          = "Hi #{current_admin.name}"
+        - else
+          Welcome
+        %i.dropdown.icon
+        .menu
+          - if admin_signed_in?
+            = link_to 'Edit Account', '#', class: 'item'
+            = link_to 'Manage Users', '#', class: 'item'
+            = link_to destroy_admin_session_path, method: :delete, class: 'item' do
+              = content_tag 'i', '', class: 'sign out icon'
+              = 'Logout'
+          - else
+            = link_to 'Login', new_admin_session_path, class: 'item'
+- if flash[:notice] || flash[:alert]
+  .ui.padded.grid
+    .row
+      .two.wide.column
+      .twelve.wide.column
+        .ui.info.message
+          %p= flash[:notice] || flash[:alert]
+          %i.close.icon

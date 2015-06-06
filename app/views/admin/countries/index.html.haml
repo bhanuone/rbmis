@@ -1,0 +1,35 @@
+- breadcrumb :countries
+.ui.centered.grid
+  .three.wide.column
+    .ui.header
+      Listing countries
+.row
+  .four.wide.column
+  .four.wide.column= link_to '+New Country', new_country_path, class: 'ui button primary'
+.row  
+  .four.wide.column
+  .twelve.wide.column
+    %table.ui.padded.collapsing.table
+      %thead
+        %tr
+          %th S.no
+          %th Flag
+          %th Name
+          %th ISO Code
+          %th.center.aligned Options
+
+      %tbody
+        - i = 0
+        - @countries.each do |country|
+          %tr
+            %td= i += 1
+            %td
+              %i{class: "#{country.iso_code.downcase} flag"}
+            %td= country.name
+            %td= country.iso_code
+            %td
+              .ui.buttons
+                = link_to 'Show', country, class: 'compact ui button primary'
+                = link_to 'Edit', edit_country_path(country), class: 'compact ui button'
+                = link_to 'Delete', country, :method => :delete, :data => { :confirm => 'Are you sure?' }, class: 'compact ui negative button'
+  .ui.divider

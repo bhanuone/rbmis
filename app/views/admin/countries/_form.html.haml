@@ -1,0 +1,14 @@
+= form_for @country, html: {class: 'ui form'} do |f|
+  .two.fields    
+    .field
+      = f.label :name, "Name"    
+      = f.text_field :name, placeholder: 'Country name'
+      = errors_list_for(@country, :name)
+    .field
+      = f.label :iso_code, "ISO Code"
+      = f.text_field :iso_code, placeholder: 'ISO Code'
+      = errors_list_for(@country, :iso_code)
+  .ui.buttons
+    = link_to 'Cancel', countries_path, class: 'ui button'
+    .or
+    = f.submit 'Save', class: "ui positive button"

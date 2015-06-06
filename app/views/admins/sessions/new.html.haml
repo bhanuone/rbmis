@@ -1,0 +1,21 @@
+.ui.middle.aligned.center.aligned.grid
+  .column.admin-login-form
+    %h2.ui.teal.header Administrator Log-in
+    = form_for(resource, as: resource_name, url: session_path(resource_name), html:{class: 'ui large form'}) do |f|
+      .ui.stacked.segment
+        .field
+          .ui.left.icon.input
+            %i.user.icon
+            = f.email_field :email, autofocus: true, :placeholder => "E-mail address"
+        .field
+          .ui.left.icon.input
+            %i.lock.icon
+            = f.password_field :password, autocomplete: "off", :placeholder => "Password"
+        - if devise_mapping.rememberable?
+          .field
+            .ui.checkbox
+              = f.check_box :remember_me
+              = f.label :remember_me
+        = f.submit "Log in", class: 'ui fluid large teal submit button' 
+        .column.left.aligned
+          = render "admins/shared/links"

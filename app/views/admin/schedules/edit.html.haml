@@ -1,0 +1,66 @@
+- breadcrumb :edit_doctor_schedule, @schedule
+.ui.centered.grid
+  .row
+    .two.wide.column
+      .ui.header Edit timings
+  .twelve.wide.column
+    = form_for @schedule, url:{action: :update, doctor_id: @schedule.doctor_id}, html:{class: 'ui form'} do |f|
+      %table.ui.structured.celled.compact.table
+        %thead
+          %tr
+            %th(rowspan="2") Working Day
+            %th.center.aligned(colspan="2") Morning
+            %th.center.aligned(colspan="2") Noon / Evening
+          %tr
+            - 2.times do
+              %th.center.aligned From
+              %th.center.aligned To  
+        %tbody
+          %tr
+            %th Sunday
+            %td= f.text_field :sunday_morning_from, value: ampm(@schedule.sunday_morning_from)
+            %td= f.text_field :sunday_morning_to, value: ampm(@schedule.sunday_morning_to)
+            %td= f.text_field :sunday_noon_from, value: ampm(@schedule.sunday_noon_from)
+            %td= f.text_field :sunday_noon_to, value: ampm(@schedule.sunday_noon_to)
+          %tr
+            %th Monday
+            %td= f.text_field :monday_morning_from, value: ampm(@schedule.monday_morning_from)
+            %td= f.text_field :monday_morning_to, value: ampm(@schedule.monday_morning_to)
+            %td= f.text_field :monday_noon_from, value: ampm(@schedule.monday_noon_from)
+            %td= f.text_field :monday_noon_to, value: ampm(@schedule.monday_noon_to)
+          %tr
+            %th Tuesday
+            %td= f.text_field :tuesday_morning_from, value: ampm(@schedule.tuesday_morning_from)
+            %td= f.text_field :tuesday_morning_to, value: ampm(@schedule.tuesday_morning_to)
+            %td= f.text_field :tuesday_noon_from, value: ampm(@schedule.tuesday_noon_from)
+            %td= f.text_field :tuesday_noon_to, value: ampm(@schedule.tuesday_noon_to)
+          %tr
+            %th Wednesday
+            %td= f.text_field :wednesday_morning_from, value: ampm(@schedule.wednesday_morning_from)
+            %td= f.text_field :wednesday_morning_to, value: ampm(@schedule.wednesday_morning_to)
+            %td= f.text_field :wednesday_noon_from, value: ampm(@schedule.wednesday_noon_from)
+            %td= f.text_field :wednesday_noon_to, value: ampm(@schedule.wednesday_noon_to)
+          %tr
+            %th Thursday
+            %td= f.text_field :thursday_morning_from, value: ampm(@schedule.thursday_morning_from)
+            %td= f.text_field :thursday_morning_to, value: ampm(@schedule.thursday_morning_to)
+            %td= f.text_field :thursday_noon_from, value: ampm(@schedule.thursday_noon_from)
+            %td= f.text_field :thursday_noon_to, value: ampm(@schedule.thursday_noon_to)
+          %tr
+            %th Friday
+            %td= f.text_field :friday_morning_from, value: ampm(@schedule.friday_morning_from)
+            %td= f.text_field :friday_morning_to, value: ampm(@schedule.friday_morning_to)
+            %td= f.text_field :friday_noon_from, value: ampm(@schedule.friday_noon_from)
+            %td= f.text_field :friday_noon_to, value: ampm(@schedule.friday_noon_to)
+          %tr
+            %th Saturday
+            %td= f.text_field :saturday_morning_from, value: ampm(@schedule.saturday_morning_from)
+            %td= f.text_field :saturday_morning_to, value: ampm(@schedule.saturday_morning_to)
+            %td= f.text_field :saturday_noon_from, value: ampm(@schedule.saturday_noon_from)
+            %td= f.text_field :saturday_noon_to, value: ampm(@schedule.saturday_noon_to)
+      .ui.buttons
+        = link_to 'Cancel', doctor_path(@schedule.doctor), class: 'ui negetive button'
+        .or
+        = f.submit "Save", class: 'ui positive button' 
+:javascript
+  $('.ui.table input').datetimepicker({datepicker:false, closeOnDateSelect:true, format:'g:i A', lazyInit:true, minTime:'6:00', maxTime:'22:00', step:30, defaultTime:'12:00'});

@@ -1,0 +1,14 @@
+= form_tag controller:'search_engine', action:'search', method: "get" do
+  %label{:for => "country"} Country
+  %select#country{:name => "country"}
+    %option{:selected => "selected", :value => ""}
+  %br/
+  %label{:for => "zone"} Region
+  %select#zone{:name => "zone"}
+    %option{:selected => "selected", :value => ""}
+  %br/
+  %label{:for => "district"} City
+  %select#district{:name => "district"}
+    %option{:selected => "selected", :value => ""}
+  = text_field_tag :search, params[:search], id:  'search_field'
+  = submit_tag "Go"
